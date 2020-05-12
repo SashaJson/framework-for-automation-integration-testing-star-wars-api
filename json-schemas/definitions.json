@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "definitions.json",
+  "definitions": {
+    "people": {
+      "type": "string",
+      "trim": true,
+      "format": "uri"
+    },
+    "planets": {
+      "type": "string",
+      "trim": true,
+      "format": "uri"
+    },
+    "films": {
+      "type": "string",
+      "trim": true,
+      "format": "uri"
+    },
+    "species": {
+      "type": "string",
+      "trim": true,
+      "format": "uri"
+    },
+    "vehicles": {
+      "type": "string",
+      "trim": true,
+      "format": "uri"
+    },
+    "starships": {
+      "type": "string",
+      "trim": true,
+      "format": "uri"
+    }
+  }
+}

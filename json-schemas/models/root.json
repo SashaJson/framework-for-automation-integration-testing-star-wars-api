@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "root.json",
+  "type": "object",
+  "properties": {
+    "people": {
+      "$ref": "definitions.json#/definitions/people"
+    },
+    "planets": {
+      "$ref": "definitions.json#/definitions/planets"
+    },
+    "films": {
+      "$ref": "definitions.json#/definitions/films"
+    },
+    "species": {
+      "$ref": "definitions.json#/definitions/species"
+    },
+    "vehicles": {
+      "$ref": "definitions.json#/definitions/vehicles"
+    },
+    "starships": {
+      "$ref": "definitions.json#/definitions/starships"
+    }
+  }
+}
