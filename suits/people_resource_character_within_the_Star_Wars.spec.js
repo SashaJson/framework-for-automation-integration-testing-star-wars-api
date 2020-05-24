@@ -8,11 +8,12 @@ const val = require('../libs/jsonValidate');
 const def = require('../config/defaults');
 
 describe("A People resource is an individual person or character within the Star Wars universe", () => {
-    it("0. Get all the people resources", async () => {
+    it("0. Get all the people with default query parameter 'page=1'", async () => {
         const response = await fetch(`${def.url}/people`);
-        expect(response.status).to.equal(200);
-        expect(response.statusText).to.equal('OK');
-        expect(response.headers.get('content-type')).to.equal('application/json');
+        expect(response.status).to.equal(def.code200);
+        expect(response.statusText).to.equal(def.statusTextOk);
+        expect(response.headers.get('content-type')).to.equal(def.contentType);
         const responseJSON = await utils.transformResponseToJson(response);
+
     });
 })
