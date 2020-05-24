@@ -13,6 +13,105 @@
       "trim": true,
       "format": "uri",
       "minLength": 1
+    },
+    "detail": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "edited": {
+      "type": "string",
+      "format": "date-time",
+      "trim": true,
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "trim": true,
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "trim": true,
+      "minLength": 1
+    },
+    "gender": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "skin_color": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "height": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "eye_color": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "mass": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "homeworld": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "birth_year": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "hair_color": {
+      "type": "string",
+      "trim": true,
+      "minLength": 1
+    },
+    "previous": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "trim": true,
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "next": {
+    "oneOf": [
+      {
+        "type": "string",
+        "format": "uri",
+        "trim": true,
+        "minLength": 1
+      },
+      {
+        "type": "null"
+      }
+    ]
+    },
+    "count": {
+      "type": "number",
+      "trim": true,
+      "minLength": 1
     }
   }
 }
