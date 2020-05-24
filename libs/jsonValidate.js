@@ -12,6 +12,7 @@ const ajv = new Ajv({
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 ajv.addSchema(require("../json-schemas/definitions.json"));
 ajv.addSchema(require("../json-schemas/models/root.json"));
+ajv.addSchema(require("../json-schemas/models/people.json"));
 
 module.exports = {
 
