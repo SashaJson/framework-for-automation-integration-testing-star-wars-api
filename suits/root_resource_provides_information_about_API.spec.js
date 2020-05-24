@@ -1,10 +1,8 @@
 "use strict";
 
 const fetch = require('node-fetch');
-const describe = require('mocha').describe;
-const it = require('mocha').it;
-const expect = require('chai').expect;
-const assert = require('chai').assert;
+const {describe, it} = require('mocha');
+const {expect, assert} = require('chai');
 const utils = require('../libs/utils');
 const val = require('../libs/jsonValidate');
 const def = require('../config/defaults');
