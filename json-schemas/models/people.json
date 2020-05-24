@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "people.json",
+  "type": "object",
+  "properties": {
+    "count": {
+      "$ref": "definitions.json#/definitions/count"
+    },
+    "next": {
+      "$ref": "definitions.json#/definitions/next"
+    },
+    "previous": {
+      "$ref": "definitions.json#/definitions/previous"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "starships": {
+            "type": "array"
+          },
+          "edited": {
+            "$ref": "definitions.json#/definitions/edited"
+          },
+          "name": {
+            "$ref": "definitions.json#/definitions/name"
+          },
+          "created": {
+            "$ref": "definitions.json#/definitions/created"
+          },
+          "url": {
+            "$ref": "definitions.json#/definitions/url"
+          },
+          "gender": {
+            "$ref": "definitions.json#/definitions/gender"
+          },
+          "vehicles": {
+            "type": "array"
+          },
+          "skin_color": {
+            "$ref": "definitions.json#/definitions/skin_color"
+          },
+          "hair_color": {
+            "$ref": "definitions.json#/definitions/hair_color"
+          },
+          "height": {
+            "$ref": "definitions.json#/definitions/height"
+          },
+          "eye_color": {
+            "$ref": "definitions.json#/definitions/eye_color"
+          },
+          "mass": {
+            "$ref": "definitions.json#/definitions/mass"
+          },
+          "films": {
+            "type": "array"
+          },
+          "species": {
+            "type": "array"
+          },
+          "homeworld": {
+            "$ref": "definitions.json#/definitions/homeworld"
+          },
+          "birth_year": {
+            "$ref": "definitions.json#/definitions/birth_year"
+          }
+        }
+      }
+    }
+  }
+}
