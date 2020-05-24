@@ -1,7 +1,7 @@
 {
-  "name": "rest-api-test-star-wars",
+  "name": "testingapistarwars",
   "version": "1.0.0",
-  "description": "",
+  "description": "integrations testing api-star-wars",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -19,5 +19,13 @@
   "devDependencies": {
     "mocha": "^7.1.2",
     "node-fetch": "^2.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SashaJson/Integration-Testing-API-Star-Wars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SashaJson/Integration-Testing-API-Star-Wars/issues"
+  },
+  "homepage": "https://github.com/SashaJson/Integration-Testing-API-Star-Wars#readme"
 }
