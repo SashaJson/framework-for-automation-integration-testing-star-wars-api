@@ -13,30 +13,6 @@
       "trim": true,
       "format": "uri",
       "minLength": 1
-    },
-    "films": {
-      "type": "string",
-      "trim": true,
-      "format": "uri",
-      "minLength": 1
-    },
-    "species": {
-      "type": "string",
-      "trim": true,
-      "format": "uri",
-      "minLength": 1
-    },
-    "vehicles": {
-      "type": "string",
-      "trim": true,
-      "format": "uri",
-      "minLength": 1
-    },
-    "starships": {
-      "type": "string",
-      "trim": true,
-      "format": "uri",
-      "minLength": 1
     }
   }
 }

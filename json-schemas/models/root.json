@@ -10,16 +10,28 @@
       "$ref": "definitions.json#/definitions/planets"
     },
     "films": {
-      "$ref": "definitions.json#/definitions/films"
+      "type": "string",
+      "trim": true,
+      "format": "uri",
+      "minLength": 1
     },
     "species": {
-      "$ref": "definitions.json#/definitions/species"
+      "type": "string",
+      "trim": true,
+      "format": "uri",
+      "minLength": 1
     },
     "vehicles": {
-      "$ref": "definitions.json#/definitions/vehicles"
+      "type": "string",
+      "trim": true,
+      "format": "uri",
+      "minLength": 1
     },
     "starships": {
-      "$ref": "definitions.json#/definitions/starships"
+      "type": "string",
+      "trim": true,
+      "format": "uri",
+      "minLength": 1
     }
   }
 }
