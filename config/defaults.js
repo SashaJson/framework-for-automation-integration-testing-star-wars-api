@@ -10,5 +10,7 @@ module.exports = {
 
     //---------------Config for status Code and Text---------------
     code200: 200,
-    statusTextOk: 'OK'
+    statusTextOk: 'OK',
+    code404: 404,
+    statusTextNotFound: 'NOT FOUND'
 }
