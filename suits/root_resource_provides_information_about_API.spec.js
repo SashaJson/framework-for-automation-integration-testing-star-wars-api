@@ -8,12 +8,17 @@ const val = require('../libs/jsonValidate');
 const def = require('../config/defaults');
 
 describe("The Root resource provides information on all available resources within the API.", () => {
+
     it("0. Correct response format JSON and have all declared fields", async () => {
+
         const response = await fetch(`${def.url}`);
+
         expect(response.status).to.equal(def["code200"]);
         expect(response.statusText).to.equal(def["statusTextOk"]);
         expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+
         const responseJSON = await utils.transformResponseToJson(response);
+
         val.validationJsonSchema(responseJSON, {
             "type": "object",
             "allOf": [
@@ -33,12 +38,17 @@ describe("The Root resource provides information on all available resources with
             ]
         })
     });
+
     it("1. Check if value isn't empty", async () => {
+
         const response = await fetch(`${def.url}`);
+
         expect(response.status).to.equal(def["code200"]);
         expect(response.statusText).to.equal(def["statusTextOk"]);
         expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+
         const responseJSON = await utils.transformResponseToJson(response);
+
         val.validationJsonSchema(responseJSON, {
             "type": "object",
             "allOf": [
@@ -65,12 +75,17 @@ describe("The Root resource provides information on all available resources with
         expect(responseJSON.vehicles).not.equal("");
         expect(responseJSON.starships).not.equal("");
     });
+
     it("2. Check if field corresponds to a specific value", async () => {
+
         const response = await fetch(`${def.url}`);
+
         expect(response.status).to.equal(def["code200"]);
         expect(response.statusText).to.equal(def["statusTextOk"]);
         expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+
         const responseJSON = await utils.transformResponseToJson(response);
+
         val.validationJsonSchema(responseJSON, {
             "type": "object",
             "allOf": [
