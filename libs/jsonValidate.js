@@ -40,6 +40,8 @@ module.exports = {
                 }));
         }
 
+        util.inspect(jsonSchemaReceivedFromServer, {showHidden: false, depth: null});
+
     }
 
 }
