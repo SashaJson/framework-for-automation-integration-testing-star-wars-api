@@ -636,4 +636,5 @@ describe("A People resource is an individual person or character within the Star
 
         expect(responseJSON.detail).to.equal('Not found')
     });
-})
+
+}); // describe (A People resource is an individual person or character within the Star Wars universe)
