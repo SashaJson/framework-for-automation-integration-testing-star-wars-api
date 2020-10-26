@@ -80,6 +80,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=2');
         expect(responseJSON.previous).to.equal(null);
+
     });
 
     it("2. Get all the people with query parameter 'page=1'", async () => {
@@ -139,6 +140,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=2');
         expect(responseJSON.previous).to.equal(null);
+
     });
 
     it("3. Get all the people with query parameter 'page=2'", async () => {
@@ -198,6 +200,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=3');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=1');
+
     });
 
     it("4. Get all the people with query parameter 'page=3'", async () => {
@@ -257,6 +260,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=4');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=2');
+
     });
 
     it("5. Get all the people with query parameter 'page=4'", async () => {
@@ -316,6 +320,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=5');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=3');
+
     });
 
     it("6. Get all the people with query parameter 'page=5'", async () => {
@@ -375,6 +380,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=6');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=4');
+
     });
 
     it("7. Get all the people with query parameter 'page=6'", async () => {
@@ -434,6 +440,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=7');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=5');
+
     });
 
     it("8. Get all the people with query parameter 'page=7'", async () => {
@@ -493,6 +500,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=8');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=6');
+
     });
 
     it("9. Get all the people with query parameter 'page=8'", async () => {
@@ -552,6 +560,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=9');
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=7');
+
     });
 
     it("10. Get all the people with query parameter 'page=9'", async () => {
@@ -611,6 +620,7 @@ describe("A People resource is an individual person or character within the Star
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal(null);
         expect(responseJSON.previous).to.equal('http://swapi.dev/api/people/?page=8');
+
     });
 
     it("11. GET request with invalid query parameter 'page=10'", async () => {
@@ -634,7 +644,8 @@ describe("A People resource is an individual person or character within the Star
             }
         });
 
-        expect(responseJSON.detail).to.equal('Not found')
+        expect(responseJSON.detail).to.equal('Not found');
+
     });
 
 }); // describe (A People resource is an individual person or character within the Star Wars universe)
