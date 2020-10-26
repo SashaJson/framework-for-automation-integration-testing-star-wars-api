@@ -3,7 +3,7 @@
 module.exports = {
 
     //---------------Config for testing API---------------
-    url: "https://swapi.dev/api",
+    URL: "https://swapi.dev/api",
 
     //---------------Configurations Headers---------------
     contentType: 'application/json',

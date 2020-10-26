@@ -8,12 +8,12 @@ module.exports = {
 
         const responseJson = await response.json();
 
-        util.inspect(responseJson, {
+        console.log(util.inspect(responseJson, {
             showHidden: true,
             depth: null,
             compact: false,
             maxArrayLength: null
-        });
+        }));
 
         return await responseJson
     }
