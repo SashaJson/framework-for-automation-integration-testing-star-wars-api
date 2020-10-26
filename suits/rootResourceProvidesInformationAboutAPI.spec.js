@@ -1,17 +1,17 @@
 "use strict";
 
-const fetch = require('node-fetch');
 const {describe, it} = require('mocha');
 const {expect, assert} = require('chai');
 const utils = require('../libs/utils');
 const val = require('../libs/jsonValidate');
 const def = require('../config/defaults');
+const request = require('../libs/request');
 
-describe("The Root resource provides information on all available resources within the API.", () => {
+describe("The Root resource provides information on all available resources within the API", () => {
 
     it("0. Correct response format JSON and have all declared fields", async () => {
 
-        const response = await fetch(`${def.url}`);
+        const response = await request(`${def.url}`);
 
         expect(response.status).to.equal(def["code200"]);
         expect(response.statusText).to.equal(def["statusTextOk"]);
@@ -41,7 +41,7 @@ describe("The Root resource provides information on all available resources with
 
     it("1. Check if value isn't empty", async () => {
 
-        const response = await fetch(`${def.url}`);
+        const response = await request(`${def.url}`);
 
         expect(response.status).to.equal(def["code200"]);
         expect(response.statusText).to.equal(def["statusTextOk"]);
@@ -78,7 +78,7 @@ describe("The Root resource provides information on all available resources with
 
     it("2. Check if field corresponds to a specific value", async () => {
 
-        const response = await fetch(`${def.url}`);
+        const response = await request(`${def.url}`);
 
         expect(response.status).to.equal(def["code200"]);
         expect(response.statusText).to.equal(def["statusTextOk"]);
@@ -112,4 +112,5 @@ describe("The Root resource provides information on all available resources with
         expect(responseJSON.vehicles).to.equal('http://swapi.dev/api/vehicles/');
         expect(responseJSON.starships).to.equal('http://swapi.dev/api/starships/');
     });
-})
+
+}); // describe (The Root resource provides information on all available resources within the API)
