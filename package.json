@@ -8,9 +8,10 @@
   },
   "keywords": [
     "chai",
-    "mocha"
+    "mocha",
+    "automation"
   ],
-  "author": "Alex Shulga (Json)",
+  "author": "Alex Shulha (sashamiller666@gmail.com)",
   "license": "ISC",
   "dependencies": {
     "ajv": "^6.12.2",
