@@ -1,6 +1,6 @@
 'use strict';
 
-const util = require('util');
+const inspect = require('util').inspect;
 const Ajv = require('ajv');
 
 const ajv = new Ajv({
@@ -23,14 +23,14 @@ module.exports = (jsonSchemaReceivedFromServer, validJsonSchema) => {
         throw new Error('JSON-Schema invalid!' +
             ' Error in validate JSON-Schema: ' + JSON.stringify(validate.errors) +
             ' Must will be: ' +
-            util.inspect(validJsonSchema, {
+            inspect(validJsonSchema, {
                 showHidden: false,
                 depth: null,
                 compact: true,
                 maxArrayLength: null
             }) +
             ' Received response: ' +
-            util.inspect(jsonSchemaReceivedFromServer, {
+            inspect(jsonSchemaReceivedFromServer, {
                 showHidden: false,
                 depth: null,
                 compact: true,
@@ -38,6 +38,6 @@ module.exports = (jsonSchemaReceivedFromServer, validJsonSchema) => {
             }));
     }
 
-    util.inspect(jsonSchemaReceivedFromServer, {showHidden: false, depth: null});
+    inspect(jsonSchemaReceivedFromServer, {showHidden: false, depth: null});
 
 }

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const util = require("util");
+const inspect = require('util').inspect;
 
 module.exports = {
 
@@ -8,14 +8,15 @@ module.exports = {
 
         const responseJson = await response.json();
 
-        console.log(util.inspect(responseJson, {
+        console.log(inspect(responseJson, {
             showHidden: true,
             depth: null,
             compact: false,
             maxArrayLength: null
         }));
 
-        return await responseJson
+        return responseJson;
+
     }
 
 }
