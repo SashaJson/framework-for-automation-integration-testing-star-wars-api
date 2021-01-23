@@ -1,25 +1,29 @@
 "use strict";
 
-const {describe, it} = require('mocha');
-const {expect, assert} = require('chai');
-const utils = require('../libs/utils');
-const val = require('../libs/jsonValidate');
-const def = require('../config/defaults');
-const request = require('../libs/request');
+const {describe, it} = require('mocha'),
+    {expect} = require('chai');
 
-describe("The Root resource provides information on all available resources within the API", () => {
+const {transformResponseToJson} = require('../helpers/utils');
+const {URL} = require('../config/defaults');
 
-    it("0. Correct response format JSON and have all declared fields", async () => {
+const validationJson = require('../helpers/validation-json-schemas');
+const request = require('../helpers/requester');
 
-        const response = await request(`${def.URL}`);
+const assertContentTypeJson = require('../helpers/assertHeaders/assertContentTypeJson'),
+    assertCode200TextOk = require('../helpers/assertHeaders/assertCode200TextOk');
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+describe('The Root resource provides information on all available resources within the API', () => {
 
-        const responseJSON = await utils.transformResponseToJson(response);
+    it('0. Correct response format JSON and have all declared fields', async () => {
 
-        val.validationJsonSchema(responseJSON, {
+        const response = await request(`${URL}`);
+
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
+
+        const responseJSON = await transformResponseToJson(response);
+
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -40,17 +44,16 @@ describe("The Root resource provides information on all available resources with
 
     });
 
-    it("1. Check if value isn't empty", async () => {
+    it('1. Check if value isn\'t empty', async () => {
 
-        const response = await request(`${def.URL}`);
+        const response = await request(`${URL}`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -69,26 +72,27 @@ describe("The Root resource provides information on all available resources with
             ]
         });
 
-        expect(responseJSON.people).not.equal("");
-        expect(responseJSON.planets).not.equal("");
-        expect(responseJSON.films).not.equal("");
-        expect(responseJSON.species).not.equal("");
-        expect(responseJSON.vehicles).not.equal("");
-        expect(responseJSON.starships).not.equal("");
+        const emptyString = '';
+
+        expect(responseJSON.people).not.equal(emptyString);
+        expect(responseJSON.planets).not.equal(emptyString);
+        expect(responseJSON.films).not.equal(emptyString);
+        expect(responseJSON.species).not.equal(emptyString);
+        expect(responseJSON.vehicles).not.equal(emptyString);
+        expect(responseJSON.starships).not.equal(emptyString);
 
     });
 
-    it("2. Check if field corresponds to a specific value", async () => {
+    it('2. Check if field corresponds to a specific value', async () => {
 
-        const response = await request(`${def.URL}`);
+        const response = await request(`${URL}`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {

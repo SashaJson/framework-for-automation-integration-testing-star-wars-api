@@ -1,7 +1,7 @@
 'use strict';
 
-const {describe, it} = require('mocha');
-const {expect} = require('chai');
+const {describe, it} = require('mocha'),
+    {expect} = require('chai');
 
 const {transformResponseToJson} = require('../helpers/utils');
 
