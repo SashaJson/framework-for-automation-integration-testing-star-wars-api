@@ -14,9 +14,9 @@ module.exports = {
 
     //---------------Config for status Code and Text---------------
 
-    CODE_200: 200,
     STATUS_TEXT_OK: 'OK',
-    CODE_404: 404,
+    STATUS_TEXT_BAD_REQUEST: 'BAD REQUEST',
+    STATUS_TEXT_FORBIDDEN: 'Forbidden',
     STATUS_TEXT_NOT_FOUND: 'NOT FOUND'
 
 }
