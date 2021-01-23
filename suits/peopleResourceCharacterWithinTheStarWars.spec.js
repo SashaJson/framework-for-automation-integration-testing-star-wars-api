@@ -1,39 +1,47 @@
-"use strict";
+'use strict';
 
 const {describe, it} = require('mocha');
-const {expect, assert} = require('chai');
-const utils = require('../libs/utils');
-const val = require('../libs/jsonValidate');
-const def = require('../config/defaults');
-const request = require('../libs/request');
+const {expect} = require('chai');
+
+const {transformResponseToJson} = require('../helpers/utils');
+
+const validationJson = require('../helpers/validation-json-schemas');
+
+const request = require('../helpers/requester');
+
+const {URL} = require('../config/defaults');
+
+const assertContentTypeJson = require('../helpers/assertHeaders/assertContentTypeJson'),
+    assertCode200TextOk = require('../helpers/assertHeaders/assertCode200TextOk'),
+    assertCode404TextNotFound = require('../helpers/assertHeaders/assertCode404TextNotFound');
 
 const COUNT = 82;
 
-describe("A People resource is an individual person or character within the Star Wars universe", () => {
+describe('A People resource is an individual person or character within the Star Wars universe', () => {
 
     it("0. Get all the people with query parameter 'schema'", async () => {
 
-        const response = await request(`${def.URL}/people/schema`);
+        const response = await request(`${URL}/people/schema`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
-        //need add json-schema
+        // TODO IMPLEMENT JSON-SCHEMA
+
+        await transformResponseToJson(response);
+
     });
 
     it("1. Get all the people with default query parameter 'page=1'", async () => {
 
-        const response = await request(`${def.URL}/people`);
+        const response = await request(`${URL}/people`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -85,15 +93,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("2. Get all the people with query parameter 'page=1'", async () => {
 
-        const response = await request(`${def.URL}/people?page=1`);
+        const response = await request(`${URL}/people?page=1`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -145,15 +152,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("3. Get all the people with query parameter 'page=2'", async () => {
 
-        const response = await request(`${def.URL}/people?page=2`);
+        const response = await request(`${URL}/people?page=2`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -205,15 +211,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("4. Get all the people with query parameter 'page=3'", async () => {
 
-        const response = await request(`${def.URL}/people?page=3`);
+        const response = await request(`${URL}/people?page=3`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -265,15 +270,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("5. Get all the people with query parameter 'page=4'", async () => {
 
-        const response = await request(`${def.URL}/people?page=4`);
+        const response = await request(`${URL}/people?page=4`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -325,15 +329,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("6. Get all the people with query parameter 'page=5'", async () => {
 
-        const response = await request(`${def.URL}/people?page=5`);
+        const response = await request(`${URL}/people?page=5`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -385,15 +388,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("7. Get all the people with query parameter 'page=6'", async () => {
 
-        const response = await request(`${def.URL}/people?page=6`);
+        const response = await request(`${URL}/people?page=6`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -445,15 +447,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("8. Get all the people with query parameter 'page=7'", async () => {
 
-        const response = await request(`${def.URL}/people?page=7`);
+        const response = await request(`${URL}/people?page=7`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -505,15 +506,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("9. Get all the people with query parameter 'page=8'", async () => {
 
-        const response = await request(`${def.URL}/people?page=8`);
+        const response = await request(`${URL}/people?page=8`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -565,15 +565,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("10. Get all the people with query parameter 'page=9'", async () => {
 
-        const response = await request(`${def.URL}/people?page=9`);
+        const response = await request(`${URL}/people?page=9`);
 
-        expect(response.status).to.equal(def["code200"]);
-        expect(response.statusText).to.equal(def["statusTextOk"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode200TextOk(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "allOf": [
                 {
@@ -625,15 +624,14 @@ describe("A People resource is an individual person or character within the Star
 
     it("11. GET request with invalid query parameter 'page=10'", async () => {
 
-        const response = await request(`${def.URL}/people?page=10`);
+        const response = await request(`${URL}/people?page=10`);
 
-        expect(response.status).to.equal(def["code404"]);
-        expect(response.statusText).to.equal(def["statusTextNotFound"]);
-        expect(response.headers.get('content-type')).to.equal(def["contentType"]);
+        assertCode404TextNotFound(response.status, response.statusText);
+        assertContentTypeJson(response.headers.get('content-type'));
 
-        const responseJSON = await utils.transformResponseToJson(response);
+        const responseJSON = await transformResponseToJson(response);
 
-        val.validationJsonSchema(responseJSON, {
+        validationJson(responseJSON, {
             "type": "object",
             "required": ["detail"],
             "additionalProperties": false,
