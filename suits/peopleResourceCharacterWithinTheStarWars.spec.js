@@ -15,6 +15,9 @@ const assertContentTypeJson = require('../helpers/assertHeaders/assertContentTyp
     assertCode200TextOk = require('../helpers/assertHeaders/assertCode200TextOk'),
     assertCode404TextNotFound = require('../helpers/assertHeaders/assertCode404TextNotFound');
 
+const getAllPeopleJsonModel = require('../json-schemas/model-response-json/getAllPeople'),
+    invalidQueryParameterJsonModel = require('../json-schemas/model-response-json/invalidQueryParametr');
+
 const COUNT = 82;
 
 describe('A People resource is an individual person or character within the Star Wars universe', () => {
@@ -41,49 +44,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=2');
@@ -100,49 +61,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=2');
@@ -159,49 +78,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=3');
@@ -218,49 +95,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=4');
@@ -277,49 +112,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=5');
@@ -336,49 +129,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=6');
@@ -395,49 +146,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=7');
@@ -454,49 +163,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=8');
@@ -513,49 +180,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=9');
@@ -572,49 +197,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "people.json#"
-                },
-                {
-                    "required": [
-                        "count",
-                        "next",
-                        "previous",
-                        "results"
-                    ]
-                },
-                {
-                    "properties": {
-                        "results": {
-                            "type": "array",
-                            "items": {
-                                "required": [
-                                    'name',
-                                    'height',
-                                    'mass',
-                                    'hair_color',
-                                    'skin_color',
-                                    'eye_color',
-                                    'birth_year',
-                                    'gender',
-                                    'homeworld',
-                                    'films',
-                                    'species',
-                                    'vehicles',
-                                    'starships',
-                                    'url',
-                                    'created',
-                                    'edited',
-                                ]
-                            }
-                        }
-                    }
-                }
-            ]
-        });
+        validationJson(responseJSON, getAllPeopleJsonModel());
 
         expect(responseJSON.count).to.equal(COUNT);
         expect(responseJSON.next).to.equal(null);
@@ -631,16 +214,7 @@ describe('A People resource is an individual person or character within the Star
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "required": ["detail"],
-            "additionalProperties": false,
-            "properties": {
-                "detail": {
-                    "$ref": "definitions.json#/definitions/detail",
-                }
-            }
-        });
+        validationJson(responseJSON, invalidQueryParameterJsonModel());
 
         expect(responseJSON.detail).to.equal('Not found');
 

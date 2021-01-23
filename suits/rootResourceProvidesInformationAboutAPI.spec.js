@@ -12,6 +12,8 @@ const request = require('../helpers/requester');
 const assertContentTypeJson = require('../helpers/assertHeaders/assertContentTypeJson'),
     assertCode200TextOk = require('../helpers/assertHeaders/assertCode200TextOk');
 
+const availableResourcesJsonModel = require('../json-schemas/model-response-json/availableResources');
+
 describe('The Root resource provides information on all available resources within the API', () => {
 
     it('0. Correct response format JSON and have all declared fields', async () => {
@@ -23,24 +25,7 @@ describe('The Root resource provides information on all available resources with
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "root.json#"
-                },
-                {
-                    "required": [
-                        "people",
-                        "planets",
-                        "films",
-                        "species",
-                        "vehicles",
-                        "starships",
-                    ]
-                }
-            ]
-        });
+        validationJson(responseJSON, availableResourcesJsonModel());
 
     });
 
@@ -53,24 +38,7 @@ describe('The Root resource provides information on all available resources with
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "root.json#"
-                },
-                {
-                    "required": [
-                        "people",
-                        "planets",
-                        "films",
-                        "species",
-                        "vehicles",
-                        "starships",
-                    ]
-                }
-            ]
-        });
+        validationJson(responseJSON, availableResourcesJsonModel());
 
         const emptyString = '';
 
@@ -92,24 +60,7 @@ describe('The Root resource provides information on all available resources with
 
         const responseJSON = await transformResponseToJson(response);
 
-        validationJson(responseJSON, {
-            "type": "object",
-            "allOf": [
-                {
-                    "$ref": "root.json#"
-                },
-                {
-                    "required": [
-                        "people",
-                        "planets",
-                        "films",
-                        "species",
-                        "vehicles",
-                        "starships",
-                    ]
-                }
-            ]
-        });
+        validationJson(responseJSON, availableResourcesJsonModel());
 
         expect(responseJSON.people).to.equal('http://swapi.dev/api/people/');
         expect(responseJSON.planets).to.equal('http://swapi.dev/api/planets/');
