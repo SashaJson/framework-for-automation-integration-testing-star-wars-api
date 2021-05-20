@@ -1,6 +1,6 @@
 'use strict';
 
-// TODO REFACTOR
+// TODO REFACTOR ASAP
 
 const {describe, it} = require('mocha'),
     {expect} = require('chai');
