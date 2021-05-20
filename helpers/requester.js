@@ -1,72 +1,132 @@
 'use strict';
 
-const fetch = require('node-fetch');
-const inspect = require('util').inspect;
+const contentTypeApplicationJson = 'application/json',
+    { URL } = require('../config/defaults'),
+    inspect = require('util').inspect,
+    fetch = require('node-fetch');
 
-module.exports = async (url, method = 'GET', data = null) => {
+function curlPostOrPutRequest(path, method, header, body) {
+    console.log(inspect(`curl --request ${ method } '${ URL }${ path }' --header 'Content-Type: ${ header }' --data-raw '${ JSON.stringify(body) }'`, {
+        showHidden: false,
+        depth: null
+    }));
+}
 
-    switch (method) {
+async function fetchWrapperGet(path) {
 
-        case 'GET':
-            console.log(inspect(`curl --request ${method} ${url}`, {
-                showHidden: false,
-                depth: null
-            }));
-            break;
+    const METHOD = 'GET';
 
-        case 'POST':
-            console.log(inspect(`curl --request ${method} ${url} --header 'Content-Type: application/json' --data-raw '${JSON.stringify(data)}'`, {
-                showHidden: false,
-                depth: null
-            }));
-            break;
+    console.log(inspect(`curl --request ${ METHOD } '${ URL }${ path }'`, { showHidden: false, depth: null }));
 
-        case 'PUT':
-            console.log(inspect(`curl --request ${method} ${url} --header 'Content-Type: application/json' --data-raw '${JSON.stringify(data)}'`, {
-                showHidden: false,
-                depth: null
-            }));
-            break;
+    const requestOptions = { method: METHOD };
 
-        case 'DELETE':
-            console.log(inspect(`curl --request ${method} ${url} --data-raw ''`, {
-                showHidden: false,
-                depth: null
-            }));
-            break;
+    let response = await fetch(URL + path, requestOptions);
 
-        default:
-            throw new Error('Http method undefine');
-    }
+    return handleResponse(response);
 
-    try {
+}
 
-        let body;
-        const headers = {};
+async function fetchWrapperPost(path, body, options, headers, isFile = false) {
 
-        if (data) {
-            headers['Content-Type'] = 'application/json';
-            body = JSON.stringify(data)
+    const METHOD = 'POST';
+
+    const defaultOptions = {
+        method: METHOD,
+        body: JSON.stringify(body)
+    };
+
+    const defaultHeaders = {
+        'Content-Type': contentTypeApplicationJson
+    };
+
+    let requestOptions = {
+        ...defaultOptions,
+        ...options,
+        headers: {
+            ...defaultHeaders,
+            ...headers
         }
+    };
 
-        const response = await fetch(url, {
-            method,
-            headers,
-            body
-        });
+    if (!isFile) {
 
-        console.log('Data when make request: ' + Date());
+        curlPostOrPutRequest(path, METHOD, requestOptions.headers['Content-Type'], body);
 
-        for (let [key, value] of response.headers) {
-            console.log(`Headers: ${key} = ${value}`);
-        }
+        let response = await fetch(URL + path, requestOptions);
 
-        console.log(`HTTP-cod response: ${response.status}`);
+        return handleResponse(response);
 
-        return await response;
+    } else {
 
-    } catch (error) {
-        console.error('Error when make request', error.message);
+        let response = await fetch(URL + path, requestOptions);
+
+        return handleResponse(response);
+
     }
 
 }
+
+async function fetchWrapperPut(path, body, options, headers) {
+
+    const METHOD = 'PUT';
+
+    const defaultOptions = {
+        method: METHOD,
+        body: JSON.stringify(body)
+    };
+
+    const defaultHeaders = {
+        'Content-Type': contentTypeApplicationJson
+    };
+
+    let requestOptions = {
+        ...defaultOptions,
+        ...options,
+        headers: {
+            ...defaultHeaders,
+            ...headers
+        }
+    };
+
+    curlPostOrPutRequest(path, METHOD, requestOptions.headers['Content-Type'], body);
+
+    let response = await fetch(URL + path, requestOptions);
+
+    return handleResponse(response);
+
+}
+
+async function fetchWrapperDelete(path) {
+
+    const METHOD = 'DELETE';
+
+    console.log(inspect(`curl --request ${ METHOD } ${ URL }${ path }' --data-raw ''`, { showHidden: false, depth: null }));
+
+    const requestOptions = { method: METHOD };
+
+    let response = await fetch(URL + path, requestOptions);
+
+    return handleResponse(response);
+
+}
+
+function handleResponse(response) {
+
+    console.log('Date when make request: ' + Date());
+
+    for (let [key, value] of response.headers) {
+        console.log(`Headers: ${ key } = ${ value }`);
+    }
+
+    console.log(`HTTP-cod response: ${ response.status }`);
+
+    if (!response.ok) {
+        console.error(`Server return HTTP-cod: ${ response.status }`);
+        return response.text();
+    } else {
+        return response.json();
+    }
+
+}
+
+module.exports = { fetchWrapperGet, fetchWrapperPost, fetchWrapperPut, fetchWrapperDelete }
