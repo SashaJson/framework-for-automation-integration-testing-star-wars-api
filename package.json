@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SashaJson/Integration-Testing-API-Star-Wars.git"
+    "url": "git+https://github.com/SashaJson/framework-for-automation-integration-testing-star-wars-api.git"
   },
   "bugs": {
     "url": "https://github.com/SashaJson/framework-for-automation-integration-testing-star-wars-api/issues"
