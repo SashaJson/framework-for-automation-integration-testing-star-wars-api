@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO REFACTOR
+
 const {describe, it} = require('mocha'),
     {expect} = require('chai');
 
