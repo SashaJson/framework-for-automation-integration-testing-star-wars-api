@@ -1,8 +1,7 @@
 {
-  "name": "testingapistarwars",
+  "name": "testing-api-star-wars",
   "version": "1.0.0",
-  "description": "integrations testing api-star-wars",
-  "main": "index.js",
+  "description": "framework-for-automation-integration-testing-star-wars-api",
   "scripts": {
     "test": "mocha --timeout 10000 ./suits"
   },
@@ -14,19 +13,19 @@
   "author": "Alex Shulha (sashamiller666@gmail.com)",
   "license": "ISC",
   "dependencies": {
-    "ajv": "^6.12.2",
-    "chai": "^4.2.0"
+    "ajv": "^8.5.0",
+    "chai": "^4.3.4"
   },
   "devDependencies": {
-    "mocha": "^7.1.2",
-    "node-fetch": "^2.6.0"
+    "mocha": "^8.4.0",
+    "node-fetch": "^2.6.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SashaJson/Integration-Testing-API-Star-Wars.git"
   },
   "bugs": {
-    "url": "https://github.com/SashaJson/Integration-Testing-API-Star-Wars/issues"
+    "url": "https://github.com/SashaJson/framework-for-automation-integration-testing-star-wars-api/issues"
   },
-  "homepage": "https://github.com/SashaJson/Integration-Testing-API-Star-Wars#readme"
+  "homepage": "https://github.com/SashaJson/framework-for-automation-integration-testing-star-wars-api#readme"
 }
