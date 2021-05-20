@@ -7,9 +7,9 @@ const {describe, it} = require('mocha'),
 
 const {transformResponseToJson} = require('../helpers/utils');
 
-const validationJson = require('../helpers/validation-json-schemas');
+const validationJson = require('../helpers/validationJsonSchemas');
 
-const request = require('../helpers/requester');
+const request = require('../helpers/requesterStarWars');
 
 const {URL} = require('../config/defaults');
 

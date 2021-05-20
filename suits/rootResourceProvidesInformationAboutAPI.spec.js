@@ -8,8 +8,8 @@ const {describe, it} = require('mocha'),
 const {transformResponseToJson} = require('../helpers/utils');
 const {URL} = require('../config/defaults');
 
-const validationJson = require('../helpers/validation-json-schemas');
-const request = require('../helpers/requester');
+const validationJson = require('../helpers/validationJsonSchemas');
+const request = require('../helpers/requesterStarWars');
 
 const assertContentTypeJson = require('../helpers/assertHeaders/assertContentTypeJson'),
     assertCode200TextOk = require('../helpers/assertHeaders/assertCode200TextOk');
