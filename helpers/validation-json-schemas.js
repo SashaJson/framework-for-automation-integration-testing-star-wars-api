@@ -1,13 +1,8 @@
 'use strict';
 
-const inspect = require('util').inspect;
-const Ajv = require('ajv');
-
-const ajv = new Ajv({
-    meta: true,
-    unknownFormats: 'ignore',
-    allErrors: true
-});
+const Ajv = require('ajv'),
+    ajv = new Ajv.default({ ajvErrors: true, strict: true }),
+    inspect = require('util').inspect;
 
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 ajv.addSchema(require('../json-schemas/definitions.json'));
@@ -20,24 +15,18 @@ module.exports = (jsonSchemaReceivedFromServer, validJsonSchema) => {
     const valid = validate(jsonSchemaReceivedFromServer)
 
     if (!valid) {
-        throw new Error('JSON-Schema invalid!' +
-            ' Error in validate JSON-Schema: ' + JSON.stringify(validate.errors) +
-            ' Must will be: ' +
-            inspect(validJsonSchema, {
+        throw new Error('Json Schema validation error. Details: ' +
+            JSON.stringify({ validationError: validate.errors }, null, 2) + '\n' +
+            'Json Schema with Error from server: ' + inspect(jsonSchemaReceivedFromServer, {
                 showHidden: false,
-                depth: null,
-                compact: true,
-                maxArrayLength: null
-            }) +
-            ' Received response: ' +
-            inspect(jsonSchemaReceivedFromServer, {
-                showHidden: false,
-                depth: null,
-                compact: true,
-                maxArrayLength: null
+                depth: null
             }));
     }
 
-    inspect(jsonSchemaReceivedFromServer, {showHidden: false, depth: null});
+    console.log('Json Schema from server: ' + inspect(jsonSchemaReceivedFromServer, {
+        showHidden: false,
+        depth: null,
+        colors: true
+    }));
 
 }
