@@ -4,11 +4,15 @@
 
 const COUNT = 82; // What this count?
 
+const People = require('../api/controller/people');
+
 describe('A People resource is an individual person or character within the Star Wars universe', () => {
 
     it("0. Get all the people with query parameter 'schema'", async () => {
 
-        const response = await request(`${URL}/people/schema`);
+        const p = new People();
+        await p.getAllPeople()
+        // const response = await request(`${URL}/people/schema`);
 
         // TODO IMPLEMENT JSON-SCHEMA
 
