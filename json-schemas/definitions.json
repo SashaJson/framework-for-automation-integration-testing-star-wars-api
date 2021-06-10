@@ -10,8 +10,7 @@
       "$ref": "definitions.json#/definitions/stringURL"
     },
     "planets": {
-      "type": "string",
-      "pattern":
+      "type": "string"
     },
     "detail": {
       "type": "string"
@@ -21,7 +20,7 @@
       "pattern": "(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2}.\\d{3}Z)"
     },
     "name": {
-      "type": "string",
+      "type": "string"
     },
     "created": {
       "type": "string",
