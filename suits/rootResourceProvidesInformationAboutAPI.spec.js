@@ -4,15 +4,15 @@
 
 describe('The Root resource provides information on all available resources within the API', () => {
 
-    it('0. Correct response format JSON and have all declared fields', async () => {
-
-        const response = await request(`${URL}`);
-
-        const responseJSON = await transformResponseToJson(response);
-
-        validationJson(responseJSON, availableResourcesJsonModel());
-
-    });
+    // it('0. Correct response format JSON and have all declared fields', async () => {
+    //
+    //     const response = await request(`${URL}`);
+    //
+    //     const responseJSON = await transformResponseToJson(response);
+    //
+    //     validationJson(responseJSON, availableResourcesJsonModel());
+    //
+    // });
 
     // it('1. Check if value isn\'t empty', async () => {
     //

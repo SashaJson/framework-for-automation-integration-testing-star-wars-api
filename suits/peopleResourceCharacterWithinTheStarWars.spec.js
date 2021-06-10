@@ -10,11 +10,8 @@ describe('A People resource is an individual person or character within the Star
 
     it("0. Get all the people with query parameter 'schema'", async () => {
 
-        const p = new People();
-        await p.getAllPeople()
-        // const response = await request(`${URL}/people/schema`);
-
-        // TODO IMPLEMENT JSON-SCHEMA
+        const people = new People();
+        await people.getAllPeople();
 
     });
 
