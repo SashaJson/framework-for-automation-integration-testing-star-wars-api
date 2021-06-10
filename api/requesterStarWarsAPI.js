@@ -1,11 +1,10 @@
 'use strict';
 
-const contentTypeApplicationJson = 'application/json',
-    { URL } = require('../config/defaults'),
-    inspect = require('util').inspect,
-    fetch = require('node-fetch');
+const { URL } = require('../config/defaults');
+const inspect = require('util').inspect;
+const fetch = require('node-fetch');
 
-module.exports = class httpRequester {
+module.exports = class HttpRequester {
 
     async _handleResponse(response) {
 
@@ -24,13 +23,6 @@ module.exports = class httpRequester {
             return response.json();
         }
 
-    }
-
-    _curlPostOrPutRequest(path, method, header, body) {
-        console.log(inspect(`curl --request ${ method } '${ URL }${ path }' --header 'Content-Type: ${ header }' --data-raw '${ JSON.stringify(body) }'`, {
-            showHidden: false,
-            depth: null
-        }));
     }
 
     async get(path) {
