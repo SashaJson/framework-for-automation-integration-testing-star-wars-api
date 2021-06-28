@@ -1,6 +1,6 @@
 'use strict';
 
-const { URL } = require('../config/defaults');
+const { URL } = require('../static-data/defaults');
 const inspect = require('util').inspect;
 const fetch = require('node-fetch');
 
