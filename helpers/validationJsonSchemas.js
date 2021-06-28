@@ -32,6 +32,8 @@ module.exports = class ValidationJsonSchemas {
             colors: true
         }));
 
+        return jsonSchemaReceivedFromServer;
+
     }
 
 }

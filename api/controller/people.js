@@ -11,7 +11,17 @@ module.exports = class PeopleController {
     }
 
     async getAllPeople() {
+        // TODO ADD JSON SCHEMA
         this.ajv.validation(await this._starWarsApi.get('/people/schema'), {});
+    }
+
+    async getPeople(queryParams) {
+        // TODO ADD JSON SCHEMA
+        if (!queryParams) {
+            return this.ajv.validation(await this._starWarsApi.get('/people'), {});
+        } else {
+            this.ajv.validation(await this._starWarsApi.get('/people'), {});
+        }
     }
 
 }
