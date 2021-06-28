@@ -2,36 +2,37 @@
 
 // TODO REFACTOR ASAP
 
-const COUNT = 82; // What this count?
+const expect = require('chai').expect;
 
 const People = require('../api/controller/people');
 
+const COUNT_PEOPLE_ON_PAGE = 82;
+const NEXT_PEOPLE_PAGE_TWO = 'https://swapi.dev/api/people/?page=2';
+
 describe('A People resource is an individual person or character within the Star Wars universe', () => {
+
+    let peopleController;
+
+    before(() => {
+        peopleController = new People();
+    });
 
     it("0. Get all the people with query parameter 'schema'", async () => {
 
-        const people = new People();
-        await people.getAllPeople();
+        await peopleController.getAllPeople();
 
     });
 
-    // it("1. Get all the people with default query parameter 'page=1'", async () => {
-    //
-    //     const response = await request(`${URL}/people`);
-    //
-    //     assertCode200TextOk(response.status, response.statusText);
-    //     assertContentTypeJson(response.headers.get('content-type'));
-    //
-    //     const responseJSON = await transformResponseToJson(response);
-    //
-    //     validationJson(responseJSON, getAllPeopleJsonModel());
-    //
-    //     expect(responseJSON.count).to.equal(COUNT);
-    //     expect(responseJSON.next).to.equal('http://swapi.dev/api/people/?page=2');
-    //     expect(responseJSON.previous).to.equal(null);
-    //
-    // });
-    //
+    it("1. Get all the people with default query parameter 'page=1'", async () => {
+
+        const peoplesFromFirstPage = await peopleController.getPeople();
+
+        expect(peoplesFromFirstPage.count).to.equal(COUNT_PEOPLE_ON_PAGE);
+        expect(peoplesFromFirstPage.next).to.equal(NEXT_PEOPLE_PAGE_TWO);
+        expect(peoplesFromFirstPage.previous).to.equal(null);
+
+    });
+
     // it("2. Get all the people with query parameter 'page=1'", async () => {
     //
     //     const response = await request(`${URL}/people?page=1`);
