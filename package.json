@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "framework-for-automation-integration-testing-star-wars-api",
   "scripts": {
-    "test": "mocha --timeout 10000 ./suits"
+    "test": "mocha"
   },
   "keywords": [
     "chai",
