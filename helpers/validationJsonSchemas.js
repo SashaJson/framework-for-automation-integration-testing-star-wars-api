@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO REFACTOR
+
 const Ajv = require('ajv').default,
     ajv = new Ajv();
 

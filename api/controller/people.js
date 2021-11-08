@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO REFACTOR
+
 const StarWarsAPI = require('../requesterStarWarsAPI');
 const ValidationJsonSchemas = require('../../helpers/validationJsonSchemas');
 

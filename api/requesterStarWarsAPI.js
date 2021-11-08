@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO REFACTOR
+
 const { URL } = require('../static-data/defaults');
 const inspect = require('util').inspect;
 const fetch = require('node-fetch');
